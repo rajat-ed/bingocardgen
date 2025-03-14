@@ -206,7 +206,7 @@ function downloadCardsAsPDF(cards, rows, cols, items, title) {
         }
 
         doc.setFontSize(Math.max(4, fontSize - 3));
-        doc.text('From Bingo Card Gen by Rajat', pageWidth - margin - 2, cardY + rows * cellSize + 6, { align: 'right' });
+        doc.text('From www.rajat-ed.github.io/bingocardgen', pageWidth - margin - 2, cardY + rows * cellSize + 6, { align: 'right' });
         doc.setFontSize(fontSize);
     });
 
