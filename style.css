@@ -1,188 +1,242 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f0f4f8;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    flex: 1;
-  }
-  
-  h1 {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  textarea, select, input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  button {
-    background: #1abc9c;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #16a085;
-  }
-  
-  .grid-options {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .bingo-card {
-    background: #fff;
-    border: 3px solid #3498db;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-    display: inline-grid;
-    text-align: center;
-  }
-  
-  .bingo-card div {
-    border: 1px solid #eee;
-    padding: 15px;
-    font-size: 16px;
-    background: #fff;
-  }
-  
-  .bingo-card .branding {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    font-size: 8px;
-    color: #7f8c8d;
-    font-style: italic;
-  }
-  
-  .download-btn {
-    display: block;
-    margin: 20px auto;
-  }
-  
-  .gameplay-section {
-    text-align: center;
-  }
-  
-  #bingoCage {
-    width: 150px;
-    height: 150px;
-    margin: 20px auto;
-    position: relative;
-    perspective: 1000px;
-  }
-  
-  #bingoCage::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.5));
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transform: translateZ(-75px);
-  }
-  
-  #currentItem {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: #2c3e50;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    opacity: 0;
-    z-index: 1;
-  }
-  
-  .spinning {
-    animation: spinSphere 1.5s ease-in-out forwards;
-  }
-  
-  .reveal {
-    animation: revealItem 0.5s ease-in forwards;
-  }
-  
-  @keyframes spinSphere {
-    0% { transform: rotateX(0deg) rotateY(0deg); }
-    50% { transform: rotateX(180deg) rotateY(360deg); }
-    100% { transform: rotateX(360deg) rotateY(720deg); }
-  }
-  
-  @keyframes revealItem {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  }
-  
-  .used-words {
-    margin-top: 20px;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .used-words h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    color: #2c3e50;
-  }
-  
-  #usedWordsList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  #usedWordsList span {
-    background: #ecf0f1;
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: #34495e;
-    font-size: 14px;
-    transform: rotate(-10deg); /* Slight tilt for visual interest */
-    display: inline-block;
-  }
-  
-  footer {
-    text-align: right;
-    color: #7f8c8d;
-    font-size: 14px;
-    padding: 10px 0;
-  }
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  margin: 0;
+  padding: 20px;
+  color: #334155;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #334155;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+textarea, select, input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #ffffff;
+  color: #334155;
+  resize: none;
+}
+
+textarea:focus, select:focus, input:focus {
+  border-color: #60a5fa;
+  outline: none;
+}
+
+.item-count {
+  display: block;
+  margin: -5px 0 10px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.grid-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.suggested-layouts {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #334155;
+}
+
+.suggested-layouts span {
+  background: #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggested-layouts span:hover {
+  background: #60a5fa;
+  color: #fff;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background: #60a5fa;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #3b82f6;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bingo-card {
+  background: #fff;
+  border: 3px solid #60a5fa;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-grid;
+  text-align: center;
+}
+
+.bingo-card div {
+  border: 1px solid #e2e8f0;
+  padding: 15px;
+  font-size: 16px;
+  background: #f8fafc;
+}
+
+.bingo-card .branding {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 10px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.download-btn {
+  display: block;
+  margin: 20px auto;
+}
+
+.gameplay-section {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.current-call {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.call-sphere {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at 30% 30%, #fefcbf, #fbbf24);
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.call-button {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.called-items {
+  padding: 20px;
+}
+
+.called-items h2 {
+  margin: 0 0 15px;
+  font-size: 20px;
+  color: #334155;
+  font-weight: 700;
+}
+
+.called-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.called-list span {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #334155;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-over {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.game-over h1 {
+  font-size: 48px;
+  color: #fefcbf;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.game-over button {
+  margin-top: 20px;
+  background: #34d399;
+}
+
+.game-over button:hover {
+  background: #10b981;
+}
+
+footer {
+  text-align: right;
+  color: #64748b;
+  font-size: 14px;
+  padding: 10px 0;
+}
